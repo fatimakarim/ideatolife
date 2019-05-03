@@ -1,0 +1,183 @@
+<div class="page-layout blank p-24" feedPerfectScrollbar fxLayout="column" fxLayoutAlign="space-around stretch">
+
+  <h2>{{'SAMPLE.HELLO' | translate}}</h2>
+  <mat-card>
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+
+      <mat-form-field fxFlex="40%" fxFlexFill>
+        <mat-label>Type</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{food.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field fxFlex="40%" fxFlexFill>
+        <mat-label>Brand</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{food.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+    <div fxLayout="column" fxLayoutAlign="space-between stretch">
+      <div fxLayout="column" fxLayoutAlign="space-between stretch" fxFlex="55%" fxLayoutGap="40px">
+        <div fxLayout.gt-xs="row" fxLayout.lt-md="column" fxLayoutAlign="space-between stretch" fxLayoutGap="10px">
+          <div fxFlex="30%" fxFill fxLayoutAlign="center center">
+            <mat-card>
+              <mat-card-content>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                  <img mat-card-lg-image src="./../../../../assets/images/cards/1554101010_53672.png">
+                </div>
+              </mat-card-content>
+              <mat-divider>
+              </mat-divider>
+              <mat-card-actions>
+                <div fxLayout="row" fxLayoutAlign="space-around center">
+                  <button mat-raised-button>
+                    {{'BUTTONS.VIEW' | translate}}</button>
+
+                  <button mat-raised-button color="primary">
+                    {{'BUTTONS.EDIT' | translate}}</button>
+                </div>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+
+          <div fxFlex="30%" fxFill >
+            <h1>Zaatar W Zeit</h1>
+            <h3>Food & Beverages</h3>
+            <h3>Lebanese Cuisine</h3>
+            <h3>Fast Food,Fine dining</h3>
+            <h3>www.zaatarwzeit.net/UAE/</h3>
+
+          </div>
+          <div fxFlex="30%">
+              <mat-card class="card-branch">
+                <mat-card-content class="card-branch-content">
+                  <div fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="5px">
+                    <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="5px">
+                      <img class="icon-branch-count" src="./../../../../assets/images/cards/64b2b5a6-38a8-4ef2-a74b-594e742715fa.png">
+                      <h1><b class="text">100</b></h1>
+                     
+                    </div>
+                  </div>
+                </mat-card-content>
+                <mat-divider></mat-divider>
+                <div fxLayout="row" fxLayoutAlign="center end" class="ngv-mrgn cursor">
+                    <a>
+                        <img class="icon-branch-count" src="./../../../../assets/images/cards/175761f9-c457-4ad2-8e1d-78316241dc09.png">
+                    </a>
+
+                  </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center" class="text-color">
+                  Feed Cradits
+                </div>
+              </mat-card>
+      </div>
+      <div fxFlex="30%">
+          <mat-card class="card-branch">
+            <mat-card-content class="card-branch-content">
+              <div fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="5px">
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="5px">
+                  <img class="icon-branch-count" src="./../../../../assets/images/cards/d93668a8-d82e-49cb-8f49-c5d4b7dcd503.png">
+                  <h1 fxLayout="column"><b class="text1">6 Active</b><b class="text2">6 Inactive</b></h1>
+                
+                </div>
+              </div>
+            </mat-card-content>
+            <mat-divider></mat-divider>
+            <div fxLayout="row" fxLayoutAlign="center end" class="ngv-mrgn cursor">
+                <a>
+                    <img class="icon-branch-count" src="./../../../../assets/images/cards/175761f9-c457-4ad2-8e1d-78316241dc09.png">
+                </a>
+
+              </div>
+            <div fxLayout="row" fxLayoutAlign="space-around center" class="text-color">
+            View all branches
+            </div>
+          </mat-card>
+  </div>
+          <!-- <div fxFlex="30%" fxFill fxLayoutAlign="center center">
+            <mat-card> <img src="./../../../../assets/images/cards/fd72302a-09ce-469d-82cc-79efb44fbbc6.png">
+            </mat-card>
+          </div> -->
+
+          <!-- <div fxFlex="30%" fxFill fxLayoutAlign="center center">
+            <mat-card class="card-branch">
+              <img src="./../../../../assets/images/cards/7a3e6eeb-103f-41af-86b8-30885fd921cb.png">
+            </mat-card>
+          </div> -->
+
+        </div>
+        <div fxLayout.gt-xs="row" fxLayout.lt-md="column" fxLayoutAlign="space-between stretch" fxLayoutGap="10px">
+          
+
+            <div fxFlex="30%" fxFill fxLayoutAlign="center center">
+               <div ></div>
+              </div>
+              <div fxFlex="30%" fxFill fxLayoutAlign="center center">
+                  <mat-card > <img src="./../../../../assets/images/cards/cb3379e2-60bd-4234-abcc-7d43ad3d69a1.png">
+                  </mat-card>
+                </div>
+              <div fxFlex="30%" fxFill fxLayoutAlign="center center">
+                  <mat-card > <img src="./../../../../assets/images/cards/b91c4ec9-8f53-4b07-8a4d-5ab624f13e14.png">
+                  </mat-card>
+                </div>
+                <div fxFlex="30%" fxFill fxLayoutAlign="center center">
+                    <mat-card > <img src="./../../../../assets/images/cards/cb3379e2-60bd-4234-abcc-7d43ad3d69a1.png">
+                    </mat-card>
+                  </div>
+        </div>
+        <div fxLayout.gt-xs="row" fxLayout.lt-md="column" fxLayoutAlign="space-between stretch" fxLayoutGap="10px">
+            <div fxFlex="30%" fxFill fxLayoutAlign="center center">
+                <mat-card> <img src="./../../../../assets/images/cards/fd72302a-09ce-469d-82cc-79efb44fbbc6 (1).png">
+                </mat-card>
+              </div>
+              <div fxFlex="30%" fxFill fxLayoutAlign="center center">
+                  <mat-card> <img src="./../../../../assets/images/cards/fd72302a-09ce-469d-82cc-79efb44fbbc6 (1).png">
+                  </mat-card>
+                </div>
+                <div fxFlex="30%" fxFill fxLayoutAlign="center center">
+                  <mat-card> <img src="./../../../../assets/images/cards/7a3e6eeb-103f-41af-86b8-30885fd921cb (1).png">
+                  </mat-card>
+                </div>
+                <div fxFlex="30%" fxFill fxLayoutAlign="center center">
+                    <mat-card> <img src="./../../../../assets/images/cards/fd72302a-09ce-469d-82cc-79efb44fbbc6 (1).png">
+                    </mat-card>
+                  </div>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="space-between stretch" fxFlex="25%" fxLayoutGap="10px">
+            <div fxLayout="column" fxLayoutAlign="space-between stretch">
+              <mat-divider class="mgn-top"></mat-divider>
+            </div>
+                <div fxFlexAlign="center" >
+                     <h1> branches </h1>
+                </div>
+              <div fxLayout="row" fxLayoutAlign="space-between stretch">
+                <mat-form-field fxFill>
+                  <mat-select placeholder="Select Branch">
+                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                        {{food.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+  
+              </div>
+  
+              <div fxLayout="column" fxLayoutAlign="start stretch">
+             
+                <agm-map [zoom]="zoom">
+                </agm-map>
+             
+              </div>
+              
+          </div>
+      </div>
+    </div>
+
+  </mat-card>
+
+</div>

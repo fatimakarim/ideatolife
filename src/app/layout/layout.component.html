@@ -1,0 +1,70 @@
+<mat-sidenav-container>
+
+  <div id="feed-main-content">
+
+    <!-- TOOLBAR: Above -->
+    <ng-container *ngIf="feedSettings.layout.toolbar === 'above'">
+      <feed-toolbar class="above" [ngClass]="feedSettings.colorClasses.toolbar"></feed-toolbar>
+    </ng-container>
+    <!-- / TOOLBAR: Above -->
+
+    <!-- NAVBAR: Top -->
+    <feed-navbar-horizontal class="top-navbar" fxHide fxShow.gt-md
+                            [ngClass]="feedSettings.colorClasses.navbar"
+                            *ngIf="feedSettings.layout.navigation === 'top'">
+    </feed-navbar-horizontal>
+    <!-- / NAVBAR: Top -->
+
+    <div id="wrapper">
+
+      <!-- NAVBAR: Left -->
+      <feed-navbar-vertical [folded]="feedSettings.layout.navigationFolded"
+                            class="left-navbar"
+                            [ngClass]="feedSettings.colorClasses.navbar"
+                            *ngIf="feedSettings.layout.navigation === 'left' || feedSettings.layout.navigation === 'top'">
+      </feed-navbar-vertical>
+      <!-- / NAVBAR: Left -->
+
+      <div class="content-wrapper">
+
+        <!-- TOOLBAR: Below -->
+        <ng-container *ngIf="feedSettings.layout.toolbar === 'below'">
+          <feed-toolbar class="below" [ngClass]="feedSettings.colorClasses.toolbar"></feed-toolbar>
+        </ng-container>
+        <!-- / TOOLBAR: Below -->
+
+        <router-outlet></router-outlet>
+
+        <!-- FOOTER: Below -->
+        <ng-container *ngIf="feedSettings.layout.footer === 'below'">
+          <feed-footer class="below" [ngClass]="feedSettings.colorClasses.footer"></feed-footer>
+        </ng-container>
+        <!-- / FOOTER: Below -->
+
+      </div>
+
+      <!-- NAVBAR: Right -->
+      <feed-navbar-vertical [folded]="feedSettings.layout.navigationFolded"
+                            class="right-navbar"
+                            [ngClass]="feedSettings.colorClasses.navbar"
+                            *ngIf="feedSettings.layout.navigation === 'right'">
+      </feed-navbar-vertical>
+      <!-- / NAVBAR: Right -->
+
+    </div>
+
+    <!-- FOOTER: Above -->
+    <ng-container *ngIf="feedSettings.layout.footer === 'above'">
+      <feed-footer class="above" [ngClass]="feedSettings.colorClasses.footer"></feed-footer>
+    </ng-container>
+    <!-- FOOTER: Above -->
+
+  </div>
+
+  <!-- QUICK PANEL -->
+  <mat-sidenav feedMatSidenavHelper="quick-panel" position="end">
+    <feed-quick-panel></feed-quick-panel>
+  </mat-sidenav>
+  <!-- / QUICK PANEL -->
+
+</mat-sidenav-container>

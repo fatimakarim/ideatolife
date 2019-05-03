@@ -1,0 +1,79 @@
+<div class="filters" fxLayout="row" fxLayoutAlign="start" *ngIf="filters.length">
+
+  <mat-form-field *ngFor="let filter of filters">
+
+    <mat-select (change)="onSelectChange($event, filter.key || null)"
+                placeholder="{{filter.placeholder}}"
+                [ngModel]="selectedStatus"
+      [(value)]="selectedStatus">
+      <mat-option *ngFor="let dp of filter.dropdowns" [value]="dp.value">
+        {{ dp.name }}
+      </mat-option>
+    </mat-select>
+
+  </mat-form-field>
+
+</div>
+<div class="table-container" [class.part]="true" fxLayout="column" fxLayoutAlign="start stretch"
+     [class.table-shadow]="true" (scroll)="handleScroll($event)">
+  <mat-table *ngIf="dataSource" #table [dataSource]="dataSource">
+    <ng-container *ngFor="let column of displayedColumnsViewArray;" [matColumnDef]="column.key">
+      <mat-header-cell *matHeaderCellDef (click)="sortTable(column.key)" class="edit-icon">
+        <span>{{column.value}}</span>
+        <mat-icon *ngIf="column.key==='businessReferenceId' " matSuffix class="sorting-icon ">
+          {{column.key === sortKey && sortOrder === _constants.DEFAULT_SORT_ORDER ? 'arrow_downward' : 'arrow_upward'}}
+        </mat-icon>
+        <mat-icon *ngIf="column.key==='name' " matSuffix class="sorting-icon">
+          {{column.key === sortKey && sortOrder === _constants.DEFAULT_SORT_ORDER ? 'arrow_downward' : 'arrow_upward'}}
+        </mat-icon>
+        <mat-icon *ngIf="column.key==='firstName' " matSuffix class="sorting-icon">
+          {{column.key === sortKey && sortOrder === _constants.DEFAULT_SORT_ORDER ? 'arrow_downward' : 'arrow_upward'}}
+        </mat-icon>
+        <mat-icon *ngIf="column.key==='lastName' " matSuffix class="sorting-icon">
+          {{column.key === sortKey && sortOrder === _constants.DEFAULT_SORT_ORDER ? 'arrow_downward' : 'arrow_upward'}}
+        </mat-icon>
+        <mat-icon *ngIf="column.key==='brandManager' " matSuffix class="sorting-icon">
+          {{column.key === sortKey && sortOrder === _constants.DEFAULT_SORT_ORDER ? 'arrow_downward' : 'arrow_upward'}}
+        </mat-icon>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let element" [ngSwitch]="column.type" class="edit-icon">
+
+        <button *ngSwitchCase=" 'button' " mat-stroked-button [color]="column.color ? column.color : 'primary' "
+                (click)="emitEvent(element, column) "
+          [ngClass]="column.icon ? 'mat-icon-button' : '' ">
+          <span *ngIf="!column.icon">
+            {{column.callback ? constructNestedObject(element, column) : column.value}}
+          </span>
+          <mat-icon *ngIf="column.icon"
+                    matSuffix matTooltip="{{column.callback ? constructNestedObject(element, column) : column.value}} "
+            matTooltipPosition="above">
+            {{column.icon}}
+          </mat-icon>
+        </button>
+
+        <span *ngSwitchCase=" 'text' ">
+          {{constructNestedObject(element, column)}}
+        </span>
+
+        <button *ngSwitchCase=" 'link' " mat-button [color]="column.color ? column.color : 'primary' "
+                (click)="emitLinkEvent(element, column) "
+          [ngClass]="column.icon ? 'mat-icon-button' : '' ">
+          <span *ngIf="!column.icon ">
+            {{column.callback ? constructNestedObject(element, column) : column.value}}
+          </span>
+          <mat-icon *ngIf="column.icon" matSuffix
+                    matTooltip="{{column.callback ? constructNestedObject(element, column) : column.value}}"
+            matTooltipPosition="above">
+            {{column.icon}}
+          </mat-icon>
+        </button>
+
+        <img *ngSwitchCase="'image'" class="image" [src]="constructImage(element,column)">
+
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns " class="edit-z-index"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns; "></mat-row>
+  </mat-table>
+</div>

@@ -1,0 +1,22 @@
+<div class="feed-search-bar" [ngClass]="{'expanded':!collapsed}" fxFlex="0 1 auto">
+    <div [ngClass]="toolbarColor" fxLayout="row" fxLayoutAlign="start center" fxFlex>
+        <label for="feed-search-bar-input">
+            <button mat-icon-button class="feed-search-bar-expander" aria-label="Expand Search Bar" (click)="expand()"
+                    *ngIf="collapsed">
+                <mat-icon class="s-24 white-text-color">search</mat-icon>
+            </button>
+            <!--<span class="feed-search-bar-loader" fxLayout="row" fxLayoutAlign="center center" *ngIf="!collapsed">
+                <mat-progress-spinner color="mat-primary" mode="indeterminate"></mat-progress-spinner>
+            </span>-->
+        </label>
+
+        <input #searchInput id="feed-search-bar-input" class="ml-24 white-text-color" type="text" 
+            placeholder="Search" (input)="search($event)" fxFlex>
+
+        <button mat-icon-button class="feed-search-bar-collapser mat-icon-button" (click)="collapse()"
+                aria-label="Collapse Search Bar">
+            <mat-icon class="s-24 white-text-color">close</mat-icon>
+        </button>
+
+    </div>
+</div>

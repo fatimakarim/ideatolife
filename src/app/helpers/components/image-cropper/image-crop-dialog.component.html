@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Image
+  <br/>
+  <div>
+    <small>
+      {{this.subTitle}}
+      <mat-icon *ngIf="this.subTitle !==''" matTooltip="{{this.subTitleTooltip}}" matTooltipPosition="after">info
+      </mat-icon>
+    </small>
+    <br/>
+  </div>
+</h1>
+<div mat-dialog-content>
+  <input type="file" (change)="fileChangeEvent($event)" accept="image/*" />
+  <br/>
+  <br/>
+  <div fxLayout="row" fxLayoutAlign="end center" *ngIf="this.imageChangedEvent">
+    <mat-icon class="cursor-pointer" (click)="this.angularCropper.cropper.zoom(0.1)">zoom_in</mat-icon>
+    <mat-icon class="cursor-pointer" (click)="this.angularCropper.cropper.zoom(-0.1)">zoom_out</mat-icon>
+  </div>
+  <br/>
+  <angular-cropper *ngIf="this.imageChangedEvent" #angularCropper [cropperOptions]="this.cropperOptions" [imageUrl]="this.imageChangedEvent">
+  </angular-cropper>
+
+</div>
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+  <button mat-button class="submit-button" aria-label="LOG IN" (click)="onNoClick()">
+    CANCEL
+  </button>
+  <button mat-button class="submit-button" aria-label="LOG IN" (click)="onCropClick()" [disabled]="!this.imageChangedEvent">
+    CROP
+  </button>
+</div>
